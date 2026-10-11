@@ -5,6 +5,7 @@ Run:  pip install anthropic && export ANTHROPIC_API_KEY=...
 
 Fill in the TODOs. Each one is a thing frameworks normally hide from you.
 """
+from anthropic.types import stop_reason
 import json
 import os
 import subprocess
@@ -14,6 +15,11 @@ import anthropic
 
 MODEL = "claude-sonnet-5-5"
 MAX_TURNS = 10
+
+class TruncatedError(Exception):
+    def __init__(self, partial_text):
+        super().__init__("Response cut off at max_tokens")
+        self.partial_text = partial_text
 
 client = anthropic.Anthropic()
 
@@ -38,6 +44,15 @@ TOOLS = [
         },
     },
     # TODO: add a third tool of your own (e.g. word_count, run_python). Keep it safe.
+    {
+        "name": "word_count",
+        "description": "Read a text file and return the word count (from the first 5,000 characters)",
+        "input_schema": {
+            "type": "object",
+            "properties": {"path": {"type": "string"}},
+            "required": ["path"],
+        }
+    }
 ]
 
 
@@ -53,6 +68,11 @@ def run_tool(name: str, args: dict) -> str:
         with open(args["path"], errors="replace") as f:
             return f.read(5000)
     # TODO: handle your third tool
+    if name == "word_count":
+        with open(args["path"], error="replace") as f:
+            text = f.read(5000)
+            count = len(text.split())
+            return count
     raise ValueError(f"unknown tool {name}")
 
 
@@ -72,16 +92,42 @@ def agent(task: str) -> str:
 
         # TODO: append the assistant's response to `messages`.
         #       (Hint: the whole response.content list, not just the text.)
+        messages.append({"role":"assistant", "content":response.content})
 
         # 3. Stop reasons: decide what each one means.
         # TODO: if stop_reason is "end_turn", return the final text.
+        if response.stop_reason == "end_turn":
+            text = "".join(b.text for b in response.content if b.type == "text")
+            return text
         # TODO: if stop_reason is "max_tokens", what should happen?
+        try:
+            text = "".join(b.text for b in response.content if b.type == "text")
+        except TruncatedError as e:
+            print("WARNING:", e)
+            return text
 
         # TODO: if stop_reason is "tool_use":
         #   - for every block where block.type == "tool_use", call run_tool
         #   - wrap each result as {"type": "tool_result", "tool_use_id": block.id, "content": ...}
         #   - if run_tool raises, send the error back with "is_error": True instead of crashing
         #   - append ONE user message holding all the tool_result blocks
+        if response.stop_reason == "tool_use":
+            results = []
+            for block in response.content:
+                if block.type != "tool_use":
+                    continue
+                try:
+                    output = run_tool(block.name, block.input)
+                    results.append({
+                        "type": "tool_result",
+                        "tool_use_id": block.id,
+                        "content": output,
+                    })
+                except Exception as e:
+                    results.append(str(e))
+            messages.append({"role":"user","content":results})
+            continue
+
 
     return "Stopped: hit MAX_TURNS without finishing."
 

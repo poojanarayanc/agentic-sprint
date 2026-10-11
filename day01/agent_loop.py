@@ -65,14 +65,14 @@ def run_tool(name: str, args: dict) -> str:
             entries.append(f"{entry.name}\t{size}")
         return "\n".join(entries) or "(empty)"
     if name == "read_file":
-        with open(args["path"], errors="replace") as f:
+        with open(args["path"], error="replace") as f:
             return f.read(5000)
     # TODO: handle your third tool
     if name == "word_count":
         with open(args["path"], error="replace") as f:
             text = f.read(5000)
             count = len(text.split())
-            return count
+            return str(count)
     raise ValueError(f"unknown tool {name}")
 
 
@@ -100,10 +100,8 @@ def agent(task: str) -> str:
             text = "".join(b.text for b in response.content if b.type == "text")
             return text
         # TODO: if stop_reason is "max_tokens", what should happen?
-        try:
+        if response.stop_reason == "max_tokens":
             text = "".join(b.text for b in response.content if b.type == "text")
-        except TruncatedError as e:
-            print("WARNING:", e)
             return text
 
         # TODO: if stop_reason is "tool_use":
@@ -124,7 +122,12 @@ def agent(task: str) -> str:
                         "content": output,
                     })
                 except Exception as e:
-                    results.append(str(e))
+                    results.append({
+                        "type": "tool_result",
+                        "tool_use_id": block.id,
+                        "content": str(e),
+                        "is_error": True,
+                    })
             messages.append({"role":"user","content":results})
             continue
 
@@ -133,4 +136,7 @@ def agent(task: str) -> str:
 
 
 if __name__ == "__main__":
-    print(agent(" ".join(sys.argv[1:]) or "List the files here and summarise the largest one."))
+    try:
+        print(agent(" ".join(sys.argv[1:]) or "List the files here and summarise the largest one."))
+    except TruncatedError as e:
+        print(str(e))

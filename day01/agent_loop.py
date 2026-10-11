@@ -5,7 +5,7 @@ Run:  pip install anthropic && export ANTHROPIC_API_KEY=...
 
 Fill in the TODOs. Each one is a thing frameworks normally hide from you.
 """
-from anthropic.types import stop_reason
+
 import json
 import os
 import subprocess
@@ -65,11 +65,11 @@ def run_tool(name: str, args: dict) -> str:
             entries.append(f"{entry.name}\t{size}")
         return "\n".join(entries) or "(empty)"
     if name == "read_file":
-        with open(args["path"], error="replace") as f:
+        with open(args["path"], errors="replace") as f:
             return f.read(5000)
     # TODO: handle your third tool
     if name == "word_count":
-        with open(args["path"], error="replace") as f:
+        with open(args["path"], errors="replace") as f:
             text = f.read(5000)
             count = len(text.split())
             return str(count)
@@ -102,7 +102,7 @@ def agent(task: str) -> str:
         # TODO: if stop_reason is "max_tokens", what should happen?
         if response.stop_reason == "max_tokens":
             text = "".join(b.text for b in response.content if b.type == "text")
-            return text
+            raise TruncatedError(text)
 
         # TODO: if stop_reason is "tool_use":
         #   - for every block where block.type == "tool_use", call run_tool
@@ -139,4 +139,4 @@ if __name__ == "__main__":
     try:
         print(agent(" ".join(sys.argv[1:]) or "List the files here and summarise the largest one."))
     except TruncatedError as e:
-        print(str(e))
+        print(e.partial_text)

@@ -139,4 +139,5 @@ if __name__ == "__main__":
     try:
         print(agent(" ".join(sys.argv[1:]) or "List the files here and summarise the largest one."))
     except TruncatedError as e:
+        print("WARNING:", e)
         print(e.partial_text)

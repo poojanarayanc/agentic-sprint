@@ -120,7 +120,11 @@ def validate(rep: Dict) -> List[str]:
 def _money(v) -> str:
     if v is None:
         return "not available"
-    return f"{v / 1e9:,.1f}B" if abs(v) >= 1e8 else f"{v / 1e6:,.1f}M"
+    if abs(v) >= 1e8:
+        return f"{v / 1e9:,.1f}B"
+    if abs(v) >= 1e5:
+        return f"{v / 1e6:,.1f}M"
+    return f"{v:,.0f}"
  
  
 def to_markdown(rep: Dict) -> str:

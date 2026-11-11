@@ -151,12 +151,13 @@ def agent(task: str) -> str:
         
         if response.stop_reason == "tool_use":
             results = []
+            final = None
             for block in response.content:
                 if block.type != "tool_use":
                     continue
                 if block.name == "submit_report":
                     errors = report.validate(block.input)
-                    LAST_RUN["report"] = block.input
+                    
                     if errors:
                         print(f"  !! report rejected: {errors}")
                         results.append({"type": "tool_result", "tool_use_id": block.id, "is_error": True,
@@ -167,6 +168,7 @@ def agent(task: str) -> str:
                                         "content": f"Saved to {report.save(block.input)}"})
                     continue
                 try:
+                    LAST_RUN["report"] = block.input
                     print(f"  -> {block.name}({block.input})")
                     output = run_tool(block.name, block.input)
                     results.append({
@@ -181,7 +183,7 @@ def agent(task: str) -> str:
                         "content": str(e),
                         "is_error": True,
                     })
-                final = None
+                
             messages.append({"role":"user","content":results})
             if final:
                 return final 

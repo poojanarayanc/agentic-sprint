@@ -15,7 +15,8 @@
     {
         "query": "Natics Corp.",
         "expect_red_flags_found": [
-            "material_weakness"
+            "material_weakness",
+            "going_concern"
         ]
     }
 ]

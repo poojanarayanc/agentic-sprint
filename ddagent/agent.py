@@ -1,4 +1,4 @@
-"""Day 01: a raw tool-use agent loop against the Claude API, no framework.
+"""A raw tool-use agent loop against the Claude API, no framework.
 
 Run:  pip install anthropic && export ANTHROPIC_API_KEY=...
       python agent_loop.py "What files are in this folder, and how big is the largest?"
@@ -7,8 +7,6 @@ Fill in the TODOs. Each one is a thing frameworks normally hide from you.
 """
 
 import json
-import os
-import subprocess
 import sys
 
 import anthropic
@@ -17,7 +15,6 @@ import edgar
 MAX_TURNS = 15
 
 MODEL = "claude-sonnet-5-5"
-MAX_TURNS = 10
 
 SYSTEM_PROMPT = """You are a due diligence analyst researching US public companies for an investor.
 
@@ -53,18 +50,18 @@ client = anthropic.Anthropic()
 # 1. Tool schemas: the model only knows what you describe here.
 TOOLS = [
     {"name": "find_company",
-     "description": "matches a ticker or company with company names and tickers from SEC",
+     "description": "Use this first to get the company’s CIK, which the other tools need. matches a ticker or company with company names and tickers from SEC",
      "input_schema": {"type": "object",
                       "properties": {"query": {"type": "string", "description": "Ticker or company name"}},
                       "required": ["query"]}},
     {"name": "list_filings",
-     "description": "returns last 3 10-K with filing date, accession number and url to the document",
+     "description": "Use this to get the last 3 listings using company’s CIK. returns last 3 10-K with filing date, accession number and url to the document",
      "input_schema": {"type": "object",
                       "properties": {"cik": {"type": "integer"},
                                      "form": {"type": "string", "description": "e.g. 10-K, 10-Q, 8-K"}},
                       "required": ["cik"]}},
     {"name": "get_financials",
-     "description": "reads the XBRL of companies and returns the last 3 years of fiscal revenues, net income, assets, liabilities, cash and debts",
+     "description": "Use this to list the financials from the last 3 years' listings. reads the XBRL of companies and returns the last 3 years of fiscal revenues, net income, assets, liabilities, cash and debts",
      "input_schema": {"type": "object",
                       "properties": {"cik": {"type": "integer"}},
                       "required": ["cik"]}},
@@ -93,8 +90,9 @@ def agent(task: str) -> str:
         response = client.messages.create(
             model=MODEL,
             system=SYSTEM_PROMPT,
-            max_tokens=4096,
+            max_tokens=16000,
             tools=TOOLS,
+            thinking=True,
             messages=messages,
         )
         print(f"[turn {turn}] stop_reason={response.stop_reason} "
@@ -149,7 +147,7 @@ def agent(task: str) -> str:
 
 if __name__ == "__main__":
     try:
-        print(agent(" ".join(sys.argv[1:]) or "List the files here and summarise the largest one."))
+        print(agent(" ".join(sys.argv[1:]) or "Apple"))
     except TruncatedError as e:
         print("WARNING:", e)
         print(e.partial_text)

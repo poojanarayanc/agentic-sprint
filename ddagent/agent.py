@@ -163,12 +163,13 @@ def agent(task: str) -> str:
                         results.append({"type": "tool_result", "tool_use_id": block.id, "is_error": True,
                                         "content": "Report rejected. Fix these and call submit_report again:\n" + "\n".join(errors)})
                     else:
+                        LAST_RUN["report"] = block.input
                         final = report.to_markdown(block.input)
                         results.append({"type": "tool_result", "tool_use_id": block.id,
                                         "content": f"Saved to {report.save(block.input)}"})
                     continue
                 try:
-                    LAST_RUN["report"] = block.input
+                    
                     print(f"  -> {block.name}({block.input})")
                     output = run_tool(block.name, block.input)
                     results.append({

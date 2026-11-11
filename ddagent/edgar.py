@@ -6,8 +6,6 @@ Run:  export SEC_USER_AGENT="Your Name you@example.com"
 Three plain functions, each returns a small dict the model can read.
 Fill in the TODOs. Python 3.9: use Optional[...] / List[...], not "X | None".
 """
-from anthropic.types import anthropic_beta_param
-from anthropic.lib import credentials
 import json
 import os
 import sys

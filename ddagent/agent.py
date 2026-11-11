@@ -92,12 +92,15 @@ def agent(task: str) -> str:
             system=SYSTEM_PROMPT,
             max_tokens=16000,
             tools=TOOLS,
-            thinking=True,
+            thinking={"type": "adaptive", "display": "summarized"},
             messages=messages,
         )
         print(f"[turn {turn}] stop_reason={response.stop_reason} "
               f"in={response.usage.input_tokens} out={response.usage.output_tokens}")
-
+    
+        for block in response.content:
+            if block.type == "thinking" and block.thinking:
+                print(f"  [thinking] {block.thinking}")
         # TODO: append the assistant's response to `messages`.
         #       (Hint: the whole response.content list, not just the text.)
         messages.append({"role":"assistant", "content":response.content})

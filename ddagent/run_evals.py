@@ -53,7 +53,8 @@ def check_numbers(rep):
     for k in rep["key_figures"]:
         key = (k["metric"], k["fiscal_year_end"])
         if key not in expected:
-            wrong.append(f"{key} not returned by get_financials")
+            if k["value"] is not None:      # null for a missing figure is the honest answer
+                wrong.append(f"{key}: report {k['value']} but get_financials has no value")
         elif k["value"] != expected[key]:
             wrong.append(f"{key}: report {k['value']} vs source {expected[key]}")
     return wrong

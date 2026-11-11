@@ -1,0 +1,119 @@
+{
+  "score": "4/5",
+  "results": [
+    {
+      "query": "Apple",
+      "passed": true,
+      "checks": {
+        "schema": {
+          "pass": true,
+          "detail": []
+        },
+        "numbers": {
+          "pass": true,
+          "detail": []
+        },
+        "citations": {
+          "pass": true,
+          "detail": "7/7 exact. "
+        }
+      },
+      "turns": 3,
+      "input_tokens": 18358,
+      "output_tokens": 2926,
+      "cost_usd": 0.066,
+      "seconds": 24.2
+    },
+    {
+      "query": "Microsoft",
+      "passed": true,
+      "checks": {
+        "schema": {
+          "pass": true,
+          "detail": []
+        },
+        "numbers": {
+          "pass": true,
+          "detail": []
+        },
+        "citations": {
+          "pass": true,
+          "detail": "6/6 exact. "
+        }
+      },
+      "turns": 4,
+      "input_tokens": 35632,
+      "output_tokens": 2996,
+      "cost_usd": 0.1012,
+      "seconds": 25.1
+    },
+    {
+      "query": "Peloton",
+      "passed": true,
+      "checks": {
+        "schema": {
+          "pass": true,
+          "detail": []
+        },
+        "numbers": {
+          "pass": true,
+          "detail": []
+        },
+        "citations": {
+          "pass": true,
+          "detail": "8/8 exact. "
+        }
+      },
+      "turns": 4,
+      "input_tokens": 37870,
+      "output_tokens": 3523,
+      "cost_usd": 0.111,
+      "seconds": 29.6
+    },
+    {
+      "query": "Zyxquor Imaginary Widgets Corp",
+      "passed": true,
+      "checks": {
+        "not_found": {
+          "pass": true,
+          "detail": "Not found. \"Zyxquor Imaginary Widgets Corp\" returned no matches in the SEC company database, so I haven't submitted a report. I have no filings or financial data for it and won't make any up.\n\nIf you "
+        }
+      },
+      "turns": 3,
+      "input_tokens": 9151,
+      "output_tokens": 383,
+      "cost_usd": 0.0221,
+      "seconds": 5.5
+    },
+    {
+      "query": "Natics Corp.",
+      "passed": false,
+      "checks": {
+        "schema": {
+          "pass": true,
+          "detail": []
+        },
+        "numbers": {
+          "pass": false,
+          "detail": [
+            "('cash', '2026-04-30') not returned by get_financials",
+            "('long_term_debt', '2026-04-30') not returned by get_financials"
+          ]
+        },
+        "citations": {
+          "pass": true,
+          "detail": "7/7 exact. "
+        },
+        "red_flags": {
+          "pass": true,
+          "detail": "ok"
+        }
+      },
+      "turns": 4,
+      "input_tokens": 21933,
+      "output_tokens": 2705,
+      "cost_usd": 0.0709,
+      "seconds": 22.7
+    }
+  ]
+}

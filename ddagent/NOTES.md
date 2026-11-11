@@ -25,3 +25,5 @@ Apple                       yes   4      0.0933   schema:ok numbers:ok citations
 Microsoft                   yes   4      0.1004   schema:ok numbers:ok citations:ok
 Peloton                     yes   4      0.1142   schema:ok numbers:ok citations:ok
 Zyxquor Imaginary Widgets C yes   3      0.0229   not_found:ok
+
+First red-flag case (Natics) failed the numbers check. The agent was right (null for missing XBRL figures) and the eval was wrong. Fixed the check. Evals need testing too.

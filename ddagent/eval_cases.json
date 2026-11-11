@@ -11,5 +11,11 @@
     {
         "query": "Zyxquor Imaginary Widgets Corp",
         "expect_not_found": true
+    },
+    {
+        "query": "Natics Corp.",
+        "expect_red_flags_found": [
+            "material_weakness"
+        ]
     }
 ]

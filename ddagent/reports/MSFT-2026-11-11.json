@@ -83,57 +83,57 @@
   "financial_flags": [
     {
       "severity": "low",
-      "finding": "Cash fell to $20.935B at FY2026 from $30.242B at FY2025 (about -31%), while total assets rose to $758.376B from $619.003B.",
-      "why": "The asset base is growing fast, consistent with heavy datacenter and AI investment. Cash is still large next to long-term debt of $40.294B, so liquidity looks adequate. The 10-K does not show whether the cash decline is a deliberate shift into investments."
+      "finding": "Cash fell to $20.935B in FY2026 from $30.242B in FY2025, while total assets grew to $758.376B from $619.003B.",
+      "why": "Assets are growing quickly, consistent with heavy datacenter and AI investment. The cash balance is still large against long-term debt of $40.294B. Short-term investments are not in the data provided."
     },
     {
       "severity": "low",
-      "finding": "Total assets grew about 22% in FY2026, faster than revenue growth of about 18%.",
-      "why": "Capital intensity is rising. Returns on the AI buildout depend on future demand."
+      "finding": "Total assets rose about 22% in FY2026, faster than revenue growth of about 18%.",
+      "why": "Capital intensity is rising. Returns depend on AI and cloud demand materializing as expected."
     }
   ],
   "risks": [
     {
       "category": "financial",
       "severity": "medium",
-      "finding": "The AI and cloud buildout needs large and rising capital spending ahead of revenue. Returns are uncertain and depend on access to capital.",
+      "finding": "AI and cloud buildout requires large and rising capital spending ahead of revenue. Revenue may arrive later or lower than expected, and the build depends on continued access to financing.",
       "evidence_quote": "in advance of fully developed revenue streams. The associated revenue may not be realized in the expected timeframes or at expected levels.",
       "citation": "1A-p020"
     },
     {
       "category": "operational",
       "severity": "medium",
-      "finding": "Datacenter expansion faces power, component and supply constraints that could limit growth.",
+      "finding": "Datacenter expansion depends on power availability and scarce components, such as semiconductors. Both limit capacity growth.",
       "evidence_quote": "We have experienced and may continue to experience supply constraints, including shortages of semiconductors, networking equipment, power systems, cooling equipment",
       "citation": "1A-p068"
     },
     {
-      "category": "legal",
-      "severity": "medium",
-      "finding": "The IRS is seeking $28.9B plus penalties and interest over transfer pricing for 2004\u20132013. Microsoft disputes it and says its allowances are adequate. An adverse outcome could be material.",
-      "evidence_quote": "the IRS is seeking an additional tax payment of $28.9 billion plus penalties and interest.",
-      "citation": "7-p133"
-    },
-    {
       "category": "operational",
       "severity": "medium",
-      "finding": "A nation-state attack on Microsoft's systems exposed email accounts and some source code repositories. Further attacks could harm customers and reputation.",
-      "evidence_quote": "a nation-state associated threat actor used a password spray attack to compromise a legacy test account and, in turn, gain access to Microsoft email accounts.",
+      "finding": "Microsoft has had cybersecurity incidents, including a nation-state breach that reached source code repositories and internal systems. Further attacks could harm its reputation and customer relationships.",
+      "evidence_quote": "gain unauthorized access to some of our source code repositories and internal systems",
       "citation": "1A-p040"
     },
     {
-      "category": "market",
+      "category": "legal",
       "severity": "medium",
-      "finding": "AI is highly competitive. Some competitors and frontier model providers are also partners and customers, so the relationships may shift.",
-      "evidence_quote": "Our AI offerings compete with AI products from hyperscalers, open-source offerings, and frontier model providers, some of which are also current or potential partners.",
-      "citation": "1A-p014"
+      "finding": "The IRS is seeking $28.9B plus penalties and interest for tax years 2004\u20132013, over transfer pricing. An adverse outcome could materially affect results.",
+      "evidence_quote": "the IRS is seeking an additional tax payment of $28.9 billion plus penalties and interest.",
+      "citation": "1A-p091"
     },
     {
       "category": "regulatory",
       "severity": "medium",
-      "finding": "Laws on AI, data and other areas are changing and sometimes conflict across jurisdictions. Compliance could be costly, and noncompliance could bring penalties.",
-      "evidence_quote": "Compliance with existing, expanding, or new laws and regulations may involve significant costs and operational efforts",
-      "citation": "1A-p087"
+      "finding": "Antitrust and digital-market regulators in several jurisdictions are scrutinizing Microsoft. This could lead to fines or force changes to products.",
+      "evidence_quote": "U.S. and foreign antitrust authorities have previously brought enforcement actions and continue to scrutinize our business.",
+      "citation": "1A-p080"
+    },
+    {
+      "category": "market",
+      "severity": "medium",
+      "finding": "Competition in AI and cloud is intense. Some AI partners are also competitors and Azure customers, so their demand may change.",
+      "evidence_quote": "many of these partners compete with us with respect to certain products and services.",
+      "citation": "1A-p023"
     }
   ],
   "red_flags": [
@@ -159,12 +159,13 @@
     }
   ],
   "overall_rating": "low",
-  "rating_rationale": "Revenue grew from $245.1B to $331.8B over three years, and net income grew from $88.1B to $133.7B. Liabilities of $316.0B are well below assets of $758.4B, and long-term debt is $40.3B and falling. Management and Deloitte both found internal control over financial reporting effective. Searches found no going-concern, restatement, material weakness or auditor-change language. The main risks are the size of the AI capital spending, supply and power constraints, the $28.9B IRS dispute, cybersecurity, and competition and regulation. Item 3 only points to Note 14, which I did not read, so I could not confirm the litigation picture.",
+  "rating_rationale": "Revenue grew from $245.1B to $331.8B over three years, and net income grew from $88.1B to $133.7B. Liabilities are about 42% of assets and long-term debt is falling. Controls were assessed as effective, with a clean Deloitte ICFR opinion (9A-p004). The searches found no going-concern doubt, material weakness, restatement or auditor change. Item 3 only refers to Note 14, which I did not read, so major litigation is marked not found, not ruled out. The main risks are the size of AI capital spending, supply and power limits, the $28.9B IRS dispute, antitrust scrutiny and cybersecurity. This is research, not investment advice.",
   "open_questions": [
-    "Read Note 14 (Contingencies) for current legal proceedings. Item 3 only cross-references it, so the major-litigation check is not conclusive.",
-    "Check capital expenditure and free cash flow trends, and why cash fell about 31% in FY2026.",
-    "Assess how much of the $28.9B IRS exposure is reserved, and the timing of any resolution.",
-    "Review customer and partner concentration in AI and Azure, including the frontier model relationships.",
-    "Review the auditor's critical audit matters and the Item 9A text beyond the paragraphs read."
+    "Read Note 14 (Contingencies) for the details of current legal proceedings. Item 3 only refers to it.",
+    "Find the actual capital expenditure and free cash flow figures. Check how fast capex is growing against operating cash flow.",
+    "Look at the status and possible reserve for the $28.9B IRS NOPA dispute.",
+    "Check customer concentration and commitments with AI partners, which also compete with Microsoft and buy Azure.",
+    "Check short-term investments to put the fall in cash to $20.9B in context.",
+    "Review current EU and US antitrust matters and any remedies."
   ]
 }

@@ -1,0 +1,32 @@
+{
+  "score": "1/1",
+  "results": [
+    {
+      "query": "Natics Corp.",
+      "passed": true,
+      "checks": {
+        "schema": {
+          "pass": true,
+          "detail": []
+        },
+        "numbers": {
+          "pass": true,
+          "detail": []
+        },
+        "citations": {
+          "pass": true,
+          "detail": "7/7 exact. "
+        },
+        "red_flags": {
+          "pass": true,
+          "detail": "ok"
+        }
+      },
+      "turns": 5,
+      "input_tokens": 29090,
+      "output_tokens": 2943,
+      "cost_usd": 0.0876,
+      "seconds": 25.9
+    }
+  ]
+}

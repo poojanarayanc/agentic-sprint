@@ -55,15 +55,15 @@ key figures (copied exactly from `get_financials`), financial flags, 1 to 8 risk
 | red_flags | flags the case expects are marked found |
 | not_found | a made-up company gives no report and the answer says "not found" |
 
-Baseline (2026-11-11, one run each):
+Final run (2026-11-11): **5/5 passed**, $0.44 for the whole suite.
 
 | Case | Pass | Turns | Cost |
 |---|---|---|---|
-| Apple | yes | 4 | $0.093 |
-| Microsoft | yes | 4 | $0.100 |
-| Peloton | yes | 4 | $0.114 |
-| Made-up company | yes | 3 | $0.023 |
-| Natics Corp. (expects going concern + material weakness) | yes | 4 | $0.071 |
+| Apple | yes | 4 | $0.105 |
+| Microsoft | yes | 4 | $0.109 |
+| Peloton | yes | 4 | $0.116 |
+| Made-up company | yes | 3 | $0.022 |
+| Natics Corp. (expects going concern + material weakness) | yes | 5 | $0.086 |
 
 The first Natics run failed the numbers check. The agent was right (it wrote null for figures missing from XBRL) and the eval was wrong. The check is fixed: evals need testing too.
 

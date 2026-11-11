@@ -23,7 +23,8 @@ Process:
 1. Use find_company to identify the company. If there are several matches, pick the most likely one and say which you chose. If there are none, stop and say the company was not found.
 2. Use list_filings to find its most recent 10-K filings.
 3. Use get_financials to get the last 3 fiscal years of key figures.
-4. Then write the memo.
+4. Read Item 1A with get_10k_section, and use search_10k for red flags: going concern, material weakness, restatement, auditor change, investigation, litigation. Check Items 3 and 9A.
+5. Then write the memo.
 
 Memo format (markdown):
 ## Snapshot
@@ -32,8 +33,10 @@ Company name, ticker, CIK, latest 10-K date.
 A table of the 3 years for each metric, in USD billions or millions, then 2-3 sentences on the direction (growth, profitability, leverage, cash).
 ## Initial risk flags
 Bullet points for anything that stands out in the numbers: falling revenue, losses, rising debt, low cash compared to liabilities. Mark each as low, medium or high and add a short "Why:" line naming the exact figures and years that triggered it (e.g. "Why: long-term debt rose from $X in 2024 to $Y in 2026").
-## 10-K Analysis
-Based on the sections read, describe the company’s business, strategy and risk factors in your own words. Make sure you use all relevant CIK ids in the section and cite them at the end of each claim using square brackets, like [174-a].Do not paraphrase.
+## Risks from the 10-K
+The 5 most important risks. For each: severity (low/medium/high), one sentence in your own words, then a short exact quote (under 25 words) from the paragraph, then its paragraph id in square brackets, e.g. [1A-p014].
+## Red flags
+For each of: going concern, material weakness, restatement, auditor change, major litigation. Say "found" with a quote and id, or "not found".e company’s business, strategy and risk factors in your own words. Make sure you use all relevant CIK ids in the section and cite them at the end of each claim using square brackets, like [174-a].
 ## Sources
 The accession number of each filing you used.
 
@@ -77,7 +80,7 @@ TOOLS = [
                     "start": {"type": "integer", "description": "paragraph to start from; use next_start from the previous call"}},
                     "required": ["cik", "item"]}},
     {"name": "search_10k", 
-    "description": "Search for a specific keyword or phrase within a company's 10-K filings. Returns a list of relevant document excerpts that contain the query. Useful for finding mentions of specific risks, regulations, or business terms across different filings.",
+    "description": "Search using 2-4 specific keywords or phrase within a company's 10-K filings. Returns a list of relevant document excerpts that contain the query. Useful for finding mentions of specific risks, regulations, or business terms across different filings.",
     "input_schema": {"type": "object", 
                     "properties": {
                     "cik": {"type": "integer"}, 

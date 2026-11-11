@@ -83,60 +83,60 @@
   "financial_flags": [
     {
       "severity": "high",
-      "finding": "Liabilities ($93,508) are over 10x total assets ($8,866) at 4/30/2026; stockholders' deficit of roughly $84.6K (derived).",
-      "why": "Balance sheet is deeply insolvent on a book basis, and the gap has widened each year (assets fell from $49,518 in FY2024)."
+      "finding": "Liabilities ($93,508) are about 10.5x total assets ($8,866) at 2026-04-30; stockholders' deficit of roughly $84,642 (derived).",
+      "why": "Balance sheet is deeply insolvent on a book basis, and the gap has widened each year."
     },
     {
       "severity": "high",
-      "finding": "Net losses in all three years (-$12,160, -$41,049, -$27,159) with operating cash burn of $22,859 in FY2026, against tiny assets.",
-      "why": "Very little runway; operations are funded by advances from the sole executive and equity."
+      "finding": "Net losses in all three years (-12,160; -41,049; -27,159) while total assets fell from 49,518 to 8,866.",
+      "why": "Persistent losses are eroding the small asset base; liquidity is nearly exhausted."
     },
     {
       "severity": "medium",
-      "finding": "Revenue is tiny and volatile ($21,920, $16,200, $27,600); expenses of $54,759 are about twice revenue.",
-      "why": "There is no sign of a self-sustaining business model."
+      "finding": "Revenue is tiny and volatile (21,920 \u2192 16,200 \u2192 27,600) against expenses of $54,759.",
+      "why": "Operations are not self-sustaining; funding relies on advances from the sole executive or equity."
     },
     {
       "severity": "low",
-      "finding": "Cash and long-term debt are not available from the data source.",
-      "why": "Liquidity can't be verified from structured data. Liabilities are likely mostly related-party advances, but this was not confirmed."
+      "finding": "Cash and long-term debt are not available from the data.",
+      "why": "Liquidity cannot be fully assessed from structured data; operating cash outflow was $22,859 in FY2026."
     }
   ],
   "risks": [
     {
       "category": "financial",
       "severity": "high",
-      "finding": "Auditors have issued a going concern opinion. The company is development stage with limited revenue and no assurance that financing will be available.",
+      "finding": "Auditors have issued a going concern opinion; substantial doubt about continuing for the next twelve months.",
       "evidence_quote": "Our auditors have issued a going concern opinion.",
       "citation": "7-p001"
     },
     {
-      "category": "financial",
-      "severity": "high",
-      "finding": "Operations are funded by advances from the sole executive or by equity issuance. Future equity financing would dilute shareholders, and financing may not be available.",
-      "evidence_quote": "We have financed our operations primarily from either advances from our sole executive or the issuance of equity.",
-      "citation": "7-p015"
-    },
-    {
       "category": "governance",
       "severity": "high",
-      "finding": "Internal control over financial reporting is not effective. There is a lack of segregation of duties and no independent directors or audit committee.",
+      "finding": "Material weakness in internal control: no segregation of duties, no independent directors, no audit committee, no formal review process.",
       "evidence_quote": "none of whom are independent under applicable standards; we do not have an audit committee or compensation committee.",
       "citation": "9A-p011"
     },
     {
-      "category": "operational",
-      "severity": "medium",
-      "finding": "The company is a start-up with no meaningful operating history and depends on a sole executive. Management says the control weakness may not be remediated until operations commence.",
-      "evidence_quote": "We may not be able to fully remediate the material weakness until we commence operations",
-      "citation": "9A-p013"
+      "category": "financial",
+      "severity": "high",
+      "finding": "Dependence on advances from sole executive or equity issuance; no assurance of financing, with dilution risk.",
+      "evidence_quote": "We have financed our operations primarily from either advances from our sole executive or the issuance of equity.",
+      "citation": "7-p015"
     },
     {
-      "category": "regulatory",
-      "severity": "low",
-      "finding": "Item 1A risk factors were omitted under smaller reporting company rules, so investors get little formal risk disclosure.",
-      "evidence_quote": "Not required for Smaller reporting companies.",
-      "citation": "1A-p001"
+      "category": "operational",
+      "severity": "medium",
+      "finding": "Start-up with limited operating history and key-person dependence on a sole executive.",
+      "evidence_quote": "We are in start-up stage operations and have generated limited revenues.",
+      "citation": "7-p018"
+    },
+    {
+      "category": "financial",
+      "severity": "medium",
+      "finding": "Financing may be unavailable on acceptable terms, which could force the company to curtail operations.",
+      "evidence_quote": "We have no assurance that future financing will be available to us on acceptable terms.",
+      "citation": "7-p019"
     }
   ],
   "red_flags": [
@@ -162,17 +162,18 @@
     },
     {
       "flag": "major_litigation",
-      "status": "not_found"
+      "status": "not_found",
+      "citation": "3-p001",
+      "evidence_quote": "We are not currently a party to any legal proceedings, and we are not aware of any pending or potential legal actions."
     }
   ],
   "overall_rating": "high",
-  "rating_rationale": "This is a micro-cap shell-like start-up (FY2026 revenue $27,600). It has a going concern opinion, a confirmed material weakness, and liabilities of $93,508 against assets of $8,866. It has lost money in every year shown, and it depends on advances from its sole executive. No litigation, restatement or auditor change turned up in the sections searched, but the financial fragility and governance gaps put it at high risk.",
+  "rating_rationale": "Micro-scale shell-like start-up with a going concern opinion, a confirmed material weakness, liabilities about 10x assets, recurring losses and shrinking assets. It relies on its sole executive's advances for funding. No litigation was found, and restatement and auditor-change searches returned nothing, but the financial fragility is severe. Research only, not investment advice.",
   "open_questions": [
-    "What makes up the $93,508 of liabilities? Are they related-party loans from the sole officer, and are repayment terms disclosed?",
-    "What is the year-end cash balance? The data source returned null.",
-    "Is the sole officer able and willing to keep funding operations, and is there any plan to raise capital?",
-    "Who is the auditor, and has it changed? Item 9 was not covered by the tools.",
-    "The MD&A describes investing cash flows as both 'positive' and 'used'. Check the cash flow statement, along with the capitalized app/website costs, for impairment.",
-    "Is there any change-of-control or reverse-merger risk typical of tiny shells? Review the shareholder base and the filings list."
+    "What are the terms, size and repayment of the sole executive's advances (likely most of the $93,508 liabilities)?",
+    "What is the cash balance? It was not available from structured data.",
+    "Does the company have a realistic plan or funding for the marketing program it says it needs?",
+    "Check Item 9 and the audit report for any auditor change; Item 1A is omitted as a smaller reporting company, so risk coverage is thin.",
+    "Is the business viable beyond the mobile app/website? Check Item 1 and the related-party notes."
   ]
 }

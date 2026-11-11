@@ -45,11 +45,6 @@
       "value": 2055900000
     },
     {
-      "metric": "total_assets",
-      "fiscal_year_end": "2025-06-30",
-      "value": 2125300000
-    },
-    {
       "metric": "total_liabilities",
       "fiscal_year_end": "2026-06-30",
       "value": 2195600000
@@ -83,73 +78,66 @@
   "financial_flags": [
     {
       "severity": "medium",
-      "finding": "Revenue has declined two years in a row (2.70B \u2192 2.49B \u2192 2.446B).",
-      "why": "Profitability was reached through cost cuts rather than growth; the top line is still shrinking."
+      "finding": "Revenue has declined two years in a row: $2,700.5M (FY24), $2,490.8M (FY25), $2,446.0M (FY26).",
+      "why": "Profitability was reached on shrinking sales, so it relies on cost cuts rather than growth."
     },
     {
       "severity": "medium",
-      "finding": "Total liabilities (2.196B) exceed total assets (2.056B) at FY2026 year-end.",
-      "why": "Implies a stockholders' deficit, which limits balance sheet cushion, though the gap narrowed from FY2025 (2.539B liabilities vs 2.125B assets)."
+      "finding": "Total liabilities ($2,195.6M) exceed total assets ($2,055.9M) at FY26, a deficit of about $139.7M (my calculation). The gap has narrowed from FY25.",
+      "why": "Negative book equity limits the balance-sheet cushion."
     },
     {
       "severity": "medium",
-      "finding": "Long-term debt of 1.33B against cash of 1.2066B; interest expense was cited at 123.8M and 134.5M in two periods.",
-      "why": "Heavy fixed interest burden relative to the thin net income of 63.2M."
+      "finding": "Long-term debt is $1,330.0M against cash of $1,206.6M. Interest expense is cited at $123.8M and $134.5M in two periods.",
+      "why": "Net debt is modest, but interest costs are heavy relative to FY26 net income of $63.2M."
     },
     {
       "severity": "low",
-      "finding": "Positive turnaround: net income of 63.2M in FY2026 versus losses of 118.9M and 551.9M; cash up from 697.6M to 1.2066B over two years; debt down from 1.549B.",
-      "why": "The trend is improving, but one profitable year is a short track record."
+      "finding": "The turn to profit is recent: net income was $63.2M in FY26 after losses of $118.9M (FY25) and $551.9M (FY24).",
+      "why": "One profitable year is a short record. Sustainability is not yet proven."
     }
   ],
   "risks": [
     {
       "category": "financial",
       "severity": "medium",
-      "finding": "Profitability is new and may not be sustained; the company has a history of large operating losses.",
-      "evidence_quote": "Although we reported net income in fiscal year 2026, we have incurred significant operating losses in prior periods",
-      "citation": "1A-p004"
-    },
-    {
-      "category": "financial",
-      "severity": "high",
-      "finding": "About $1.3B of debt (Term Loan plus $350M 5.50% convertible notes due 2029). Credit agreement covenants include a $1.2B subscription revenue test and $250M minimum liquidity when the revolver is drawn.",
-      "evidence_quote": "to maintain Subscription Revenue of the company and its subsidiaries of at least $1.2 billion for the four-quarter trailing period",
+      "finding": "The Term Loan and revolver carry covenants. When the revolver is drawn, liquidity must be at least $250M and trailing subscription revenue at least $1.2B. Total indebtedness is about $1.3B, including $350M of 5.50% convertible notes due 2029.",
+      "evidence_quote": "requires us, when revolving loans are outstanding, to maintain a total level of liquidity of not less than $250.0 million",
       "citation": "1A-p175"
     },
     {
       "category": "legal",
       "severity": "high",
-      "finding": "Ongoing class actions, personal injury claims and government inquiries tied to Tread+ and Bike recalls. A new Bike+ recall was announced in November 2025.",
-      "evidence_quote": "In November 2025, in collaboration with the CPSC and Health Canada, we announced a voluntary recall of certain Original Series Bike+ units",
-      "citation": "1A-p202"
+      "finding": "The company faces ongoing class actions, personal injury claims and government inquiries tied to the Tread+ and Bike recalls. A further recall of Original Series Bike+ units was announced in November 2025.",
+      "evidence_quote": "We have been and in some cases continue to be subject to class action litigation, private personal injury claims",
+      "citation": "1A-p203"
     },
     {
-      "category": "legal",
+      "category": "operational",
       "severity": "medium",
-      "finding": "The company has been named in securities class actions and stockholder derivative suits.",
-      "evidence_quote": "We have been named in securities class action lawsuits and stockholder derivative actions",
-      "citation": "1A-p309"
+      "finding": "Profitability may not be sustained. The company has a history of operating losses, and subscriber retention and demand are uncertain.",
+      "evidence_quote": "Although we reported net income in fiscal year 2026, we have incurred significant operating losses in prior periods",
+      "citation": "1A-p004"
     },
     {
       "category": "governance",
       "severity": "medium",
-      "finding": "Material weaknesses were identified in FY2021\u2013FY2024. They are described as previously identified and remediated, but could recur, for example around inventory counts with last-mile partners.",
-      "evidence_quote": "we identified certain material weaknesses in our internal control over financial reporting",
+      "finding": "Material weaknesses were identified in internal controls in FY2021 to FY2024. Controls are now reported effective, but the risk of recurrence is flagged, including in physical inventory verification at last-mile partners.",
+      "evidence_quote": "we identified certain material weaknesses in our internal control over financial reporting.",
       "citation": "1A-p178"
     },
     {
       "category": "operational",
       "severity": "medium",
-      "finding": "Demand forecasting and inventory risk: past write-downs, discounting and disputes with suppliers over purchase commitments.",
+      "finding": "Demand forecasting and inventory risk. Past demand declines led to write-downs, discounting and disputes with suppliers over purchase commitments.",
       "evidence_quote": "We have in recent periods experienced, and may continue to experience decreases in consumer demand, resulting in inventory write-downs",
       "citation": "1A-p020"
     },
     {
       "category": "operational",
       "severity": "medium",
-      "finding": "Sole reliance on contract manufacturers, often a single supplier, concentrated in Taiwan, China and Thailand. Tariffs are also a risk.",
-      "evidence_quote": "We are solely reliant on contract manufacturers for all of our manufacturing needs.",
+      "finding": "The company relies on contract manufacturers, often a single supplier. Their facilities are concentrated in Taiwan, China and Thailand, which adds supply-chain and tariff exposure.",
+      "evidence_quote": "In most cases, we rely on only a single supplier for our products and some critical components.",
       "citation": "1A-p054"
     }
   ],
@@ -178,12 +166,13 @@
     }
   ],
   "overall_rating": "medium",
-  "rating_rationale": "Peloton has improved: FY2026 net income was 63.2M, cash was 1.2066B and debt fell. Management concluded ICFR was effective (9A-p005), and no going-concern language turned up in the searches. Offsetting this: revenue has fallen two years running, liabilities exceed assets, about 1.3B of debt carries covenants, there is continuing product-safety litigation and recall exposure, and material weaknesses were reported in FY2021\u2013FY2024. The material weakness flag is marked not_found because the weaknesses are described as previously identified and remediated. This is research, not investment advice.",
+  "rating_rationale": "Peloton reached net income of $63.2M in FY26 and cash rose to $1,206.6M. Liabilities fell, and management reports effective internal controls (9A-p005) with an Ernst & Young attestation. No going-concern language was found. Offsetting this, revenue has fallen two years running, and liabilities still exceed assets. About $1.3B of debt carries covenants and high interest costs. Recall-related class actions and injury claims continue. Material weaknesses existed through FY2024, though the 10-K describes them as previously identified. Rating: medium. The material_weakness flag is marked not_found because the weaknesses were remediated and FY26 controls are effective. Research only, not investment advice.",
   "open_questions": [
-    "Read Note 12 (Commitments and Contingencies) for the size of accruals and potential exposure from the Tread+/Bike/Bike+ recall litigation and the securities class actions.",
-    "Confirm that the earlier material weaknesses are fully remediated, and check how the shift to a shared-services provider (9A-p008) affects controls.",
-    "Check the quality of FY2026 earnings: restructuring, impairment and stock-based compensation effects, and free cash flow.",
-    "Review the subscription revenue trend against the $1.2B covenant threshold and the 2029 debt maturity wall.",
-    "Confirm that the auditor (Ernst & Young) has not changed. No change was found in the sections searched, but Item 9 was not reviewed."
+    "Review Note 12 (Commitments and Contingencies) for the size of the recall litigation exposure and any accruals.",
+    "Check the subscription revenue trend against the $1.2B trailing covenant minimum and the headroom on it.",
+    "Look at what drove the FY26 profit, including cost cuts, restructuring and one-time items, and whether margins are sustainable.",
+    "Check the maturity and refinancing plan for the Term Loan and notes (2029) and the dilution from the convertible notes.",
+    "Confirm that the material weaknesses are fully remediated and that the shared-services transition has not weakened controls.",
+    "Confirm there was no auditor change in recent years (none was found in the 10-K text searched)."
   ]
 }

@@ -21,9 +21,10 @@ Schema for the structure, Prompt still needed for the judgement.
 
 RESULTS
 case                        pass  turns  cost $   checks
-Apple                       yes   4      0.0933   schema:ok numbers:ok citations:ok
-Microsoft                   yes   4      0.1004   schema:ok numbers:ok citations:ok
-Peloton                     yes   4      0.1142   schema:ok numbers:ok citations:ok
-Zyxquor Imaginary Widgets C yes   3      0.0229   not_found:ok
+Apple                       yes   4      0.1049   schema:ok numbers:ok citations:ok
+Microsoft                   yes   4      0.109    schema:ok numbers:ok citations:ok
+Peloton                     yes   4      0.1156   schema:ok numbers:ok citations:ok
+Zyxquor Imaginary Widgets C yes   3      0.022    not_found:ok
+Natics Corp.                yes   5      0.0856   schema:ok numbers:ok citations:ok red_flags:ok
 
 First red-flag case (Natics) failed the numbers check. The agent was right (null for missing XBRL figures) and the eval was wrong. Fixed the check. Evals need testing too.

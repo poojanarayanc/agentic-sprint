@@ -50,6 +50,11 @@
       "value": 619003000000
     },
     {
+      "metric": "total_assets",
+      "fiscal_year_end": "2024-06-30",
+      "value": 512163000000
+    },
+    {
       "metric": "total_liabilities",
       "fiscal_year_end": "2026-06-30",
       "value": 315989000000
@@ -58,6 +63,11 @@
       "metric": "total_liabilities",
       "fiscal_year_end": "2025-06-30",
       "value": 275524000000
+    },
+    {
+      "metric": "total_liabilities",
+      "fiscal_year_end": "2024-06-30",
+      "value": 243686000000
     },
     {
       "metric": "cash",
@@ -70,6 +80,11 @@
       "value": 30242000000
     },
     {
+      "metric": "cash",
+      "fiscal_year_end": "2024-06-30",
+      "value": 18315000000
+    },
+    {
       "metric": "long_term_debt",
       "fiscal_year_end": "2026-06-30",
       "value": 40294000000
@@ -78,62 +93,74 @@
       "metric": "long_term_debt",
       "fiscal_year_end": "2025-06-30",
       "value": 43151000000
+    },
+    {
+      "metric": "long_term_debt",
+      "fiscal_year_end": "2024-06-30",
+      "value": 44937000000
     }
   ],
   "financial_flags": [
     {
       "severity": "low",
-      "finding": "Cash fell to $20.935B in FY2026 from $30.242B in FY2025, while total assets grew to $758.376B from $619.003B.",
-      "why": "Assets are growing quickly, consistent with heavy datacenter and AI investment. The cash balance is still large against long-term debt of $40.294B. Short-term investments are not in the data provided."
+      "finding": "Cash fell from $30.242B (FY2025) to $20.935B (FY2026) while total assets rose from $619.003B to $758.376B.",
+      "why": "Asset growth alongside lower cash is consistent with heavy datacenter/AI investment; worth monitoring liquidity and funding needs. Short-term investments were not returned by the tool."
     },
     {
       "severity": "low",
-      "finding": "Total assets rose about 22% in FY2026, faster than revenue growth of about 18%.",
-      "why": "Capital intensity is rising. Returns depend on AI and cloud demand materializing as expected."
+      "finding": "Total liabilities rose from $243.686B (FY2024) to $315.989B (FY2026), although long-term debt declined from $44.937B to $40.294B.",
+      "why": "Liability growth is coming from items other than long-term debt (e.g., possibly leases and other obligations); composition should be checked."
     }
   ],
   "risks": [
     {
       "category": "financial",
       "severity": "medium",
-      "finding": "AI and cloud buildout requires large and rising capital spending ahead of revenue. Revenue may arrive later or lower than expected, and the build depends on continued access to financing.",
-      "evidence_quote": "in advance of fully developed revenue streams. The associated revenue may not be realized in the expected timeframes or at expected levels.",
+      "finding": "Large, accelerated AI/cloud capex is ahead of revenue and depends on continued access to capital; returns may be delayed or lower than expected.",
+      "evidence_quote": "require substantial and increasing capital expenditures and continued access to capital, and are in advance of fully developed revenue streams",
       "citation": "1A-p020"
     },
     {
       "category": "operational",
       "severity": "medium",
-      "finding": "Datacenter expansion depends on power availability and scarce components, such as semiconductors. Both limit capacity growth.",
-      "evidence_quote": "We have experienced and may continue to experience supply constraints, including shortages of semiconductors, networking equipment, power systems, cooling equipment",
-      "citation": "1A-p068"
+      "finding": "Datacenter expansion is constrained by electrical power availability and cost.",
+      "evidence_quote": "Limitations in power availability, delays in obtaining power connections, outages, shortages, increased energy costs",
+      "citation": "1A-p065"
     },
     {
       "category": "operational",
       "severity": "medium",
-      "finding": "Microsoft has had cybersecurity incidents, including a nation-state breach that reached source code repositories and internal systems. Further attacks could harm its reputation and customer relationships.",
-      "evidence_quote": "gain unauthorized access to some of our source code repositories and internal systems",
+      "finding": "Supply constraints for semiconductors and other critical components, with competitors using the same suppliers.",
+      "evidence_quote": "We have experienced and may continue to experience supply constraints, including shortages of semiconductors, networking equipment, power systems",
+      "citation": "1A-p068"
+    },
+    {
+      "category": "operational",
+      "severity": "high",
+      "finding": "Cybersecurity exposure, including a prior nation-state compromise of corporate email and source code repositories that may continue to harm reputation and customer relationships.",
+      "evidence_quote": "a nation-state associated threat actor used a password spray attack to compromise a legacy test account",
       "citation": "1A-p040"
-    },
-    {
-      "category": "legal",
-      "severity": "medium",
-      "finding": "The IRS is seeking $28.9B plus penalties and interest for tax years 2004\u20132013, over transfer pricing. An adverse outcome could materially affect results.",
-      "evidence_quote": "the IRS is seeking an additional tax payment of $28.9 billion plus penalties and interest.",
-      "citation": "1A-p091"
-    },
-    {
-      "category": "regulatory",
-      "severity": "medium",
-      "finding": "Antitrust and digital-market regulators in several jurisdictions are scrutinizing Microsoft. This could lead to fines or force changes to products.",
-      "evidence_quote": "U.S. and foreign antitrust authorities have previously brought enforcement actions and continue to scrutinize our business.",
-      "citation": "1A-p080"
     },
     {
       "category": "market",
       "severity": "medium",
-      "finding": "Competition in AI and cloud is intense. Some AI partners are also competitors and Azure customers, so their demand may change.",
-      "evidence_quote": "many of these partners compete with us with respect to certain products and services.",
+      "finding": "AI strategy depends on partners that also compete with Microsoft and are significant Azure customers, so expected consumption may not materialize.",
+      "evidence_quote": "In some cases, these parties are significant customers of Azure and other cloud services.",
       "citation": "1A-p023"
+    },
+    {
+      "category": "market",
+      "severity": "medium",
+      "finding": "Intense competition across cloud, AI and platforms from hyperscalers, open-source and frontier model providers.",
+      "evidence_quote": "Our AI offerings compete with AI products from hyperscalers, open-source offerings, and frontier model providers",
+      "citation": "1A-p014"
+    },
+    {
+      "category": "regulatory",
+      "severity": "medium",
+      "finding": "Expanding and conflicting privacy, AI, and data laws globally may bring costs, product changes, or penalties.",
+      "evidence_quote": "Noncompliance could result in the imposition of penalties, criminal sanctions, or orders to cease the alleged noncompliant activity.",
+      "citation": "1A-p087"
     }
   ],
   "red_flags": [
@@ -159,13 +186,12 @@
     }
   ],
   "overall_rating": "low",
-  "rating_rationale": "Revenue grew from $245.1B to $331.8B over three years, and net income grew from $88.1B to $133.7B. Liabilities are about 42% of assets and long-term debt is falling. Controls were assessed as effective, with a clean Deloitte ICFR opinion (9A-p004). The searches found no going-concern doubt, material weakness, restatement or auditor change. Item 3 only refers to Note 14, which I did not read, so major litigation is marked not found, not ruled out. The main risks are the size of AI capital spending, supply and power limits, the $28.9B IRS dispute, antitrust scrutiny and cybersecurity. This is research, not investment advice.",
+  "rating_rationale": "Revenue grew from $245.1B to $331.8B over three years and net income from $88.1B to $133.7B. Long-term debt is modest at $40.3B against $758.4B of assets. Management and Deloitte both report effective internal controls (9A-p004, 9A-p008). Searches found no going concern, material weakness, restatement or auditor change. The main concerns are the scale and payback of AI capex, power and supply constraints, cybersecurity and regulation. These are business risks, not signs of financial distress. This is research, not investment advice.",
   "open_questions": [
-    "Read Note 14 (Contingencies) for the details of current legal proceedings. Item 3 only refers to it.",
-    "Find the actual capital expenditure and free cash flow figures. Check how fast capex is growing against operating cash flow.",
-    "Look at the status and possible reserve for the $28.9B IRS NOPA dispute.",
-    "Check customer concentration and commitments with AI partners, which also compete with Microsoft and buy Azure.",
-    "Check short-term investments to put the fall in cash to $20.9B in context.",
-    "Review current EU and US antitrust matters and any remedies."
+    "Read Note 14 (Contingencies), which Item 3 points to. It was not retrieved here, so litigation and regulatory matters are unverified.",
+    "Check capex, free cash flow and lease commitments to see how AI infrastructure spending is being funded, given cash fell to $20.9B.",
+    "Review what drove the rise in total liabilities, since long-term debt did not increase.",
+    "Review the revenue concentration and the commercial terms of AI partner relationships, including those that are also Azure customers.",
+    "Confirm that Deloitte has remained the auditor, since no change was detected in the sections read."
   ]
 }

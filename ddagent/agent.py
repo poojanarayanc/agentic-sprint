@@ -36,7 +36,7 @@ Bullet points for anything that stands out in the numbers: falling revenue, loss
 ## Risks from the 10-K
 The 5 most important risks. For each: severity (low/medium/high), one sentence in your own words, then a short exact quote (under 25 words) from the paragraph, then its paragraph id in square brackets, e.g. [1A-p014].
 ## Red flags
-For each of: going concern, material weakness, restatement, auditor change, major litigation. Say "found" with a quote and id, or "not found".e company’s business, strategy and risk factors in your own words. Make sure you use all relevant CIK ids in the section and cite them at the end of each claim using square brackets, like [174-a].
+For each of: going concern, material weakness, restatement, auditor change, major litigation. Say "found" with a quote and id, or "not found".
 ## Sources
 The accession number of each filing you used.
 
@@ -80,7 +80,7 @@ TOOLS = [
                     "start": {"type": "integer", "description": "paragraph to start from; use next_start from the previous call"}},
                     "required": ["cik", "item"]}},
     {"name": "search_10k", 
-    "description": "Search using 2-4 specific keywords or phrase within a company's 10-K filings. Returns a list of relevant document excerpts that contain the query. Useful for finding mentions of specific risks, regulations, or business terms across different filings.",
+    "description": "Keyword search in the company's latest 10-K (Items 1A, 3, 7, 9A). Use 2-4 specific keywords, e.g. 'material weakness controls'. Returns the best-matching paragraphs with their ids.",
     "input_schema": {"type": "object", 
                     "properties": {
                     "cik": {"type": "integer"}, 

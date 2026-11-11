@@ -12,7 +12,8 @@ import sys
 import anthropic
 
 import edgar
-MAX_TURNS = 15
+import tenk
+MAX_TURNS = 20
 
 MODEL = "claude-sonnet-5-5"
 
@@ -31,14 +32,17 @@ Company name, ticker, CIK, latest 10-K date.
 A table of the 3 years for each metric, in USD billions or millions, then 2-3 sentences on the direction (growth, profitability, leverage, cash).
 ## Initial risk flags
 Bullet points for anything that stands out in the numbers: falling revenue, losses, rising debt, low cash compared to liabilities. Mark each as low, medium or high and add a short "Why:" line naming the exact figures and years that triggered it (e.g. "Why: long-term debt rose from $X in 2024 to $Y in 2026").
+## 10-K Analysis
+Based on the sections read, describe the company’s business, strategy and risk factors in your own words. Make sure you use all relevant CIK ids in the section and cite them at the end of each claim using square brackets, like [174-a].Do not paraphrase.
 ## Sources
 The accession number of each filing you used.
 
 Rules:
 - Only use numbers that the tools returned. Never estimate or use outside knowledge for figures.
 - If a metric is null, write "not available" and don't guess.
-- Keep the memo under 400 words.
-- This is research, not investment advice."""
+- Keep the memo under 700 words.
+- This is research, not investment advice.
+- Every 10-K claim must carry its id, and quotes must be copied exactly. """
 
 class TruncatedError(Exception):
     def __init__(self, partial_text):
@@ -65,12 +69,28 @@ TOOLS = [
      "input_schema": {"type": "object",
                       "properties": {"cik": {"type": "integer"}},
                       "required": ["cik"]}},
+    {"name": "get_10k_section", 
+    "description": "fetches and returns the text of a specific item from a 10-K filing for a given company CIK. You can ask for items like 1A, 3, 7 or 9A. The tool returns the text and also next_start which indicates if there is more text from that section. Use this to read through specific sections of the 10-K filing. When requesting the same section again, use the next_start value from the previous call to continue reading from where you left off. This is useful for reading long sections like item 1A (Risk Factors) or item 7 (Management’s Discussion and Analysis of Financial Condition and Results of Operations).",
+    "input_schema": {"type": "object", 
+                    "properties": {"cik": {"type": "integer"},
+                    "item": {"type": "string", "enum": ["1A", "3", "7", "9A"]},
+                    "start": {"type": "integer", "description": "paragraph to start from; use next_start from the previous call"}},
+                    "required": ["cik", "item"]}},
+    {"name": "search_10k", 
+    "description": "Search for a specific keyword or phrase within a company's 10-K filings. Returns a list of relevant document excerpts that contain the query. Useful for finding mentions of specific risks, regulations, or business terms across different filings.",
+    "input_schema": {"type": "object", 
+                    "properties": {
+                    "cik": {"type": "integer"}, 
+                    "query": {"type": "string"}},
+                    "required": ["cik", "query"]}},
 ]
 
 
 TOOL_FUNCS = {"find_company": edgar.find_company,
               "list_filings": edgar.list_filings,
-              "get_financials": edgar.get_financials}
+              "get_financials": edgar.get_financials,
+              "get_10k_section": tenk.get_10k_section,
+              "search_10k": tenk.search_10k}
 MAX_TOOL_CHARS = 8000
 
 def run_tool(name: str, args: dict) -> str:

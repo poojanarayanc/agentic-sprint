@@ -32,7 +32,7 @@ Company name, ticker, CIK, latest 10-K date.
 ## Financial trend
 A table of the 3 years for each metric, in USD billions or millions, then 2-3 sentences on the direction (growth, profitability, leverage, cash).
 ## Initial risk flags
-Bullet points for anything that stands out in the numbers: falling revenue, losses, rising debt, low cash compared to liabilities. Mark each as low, medium or high and add a short "Why:" line naming the exact figures and years that triggered it (e.g. "Why: long-term debt rose from $X in 2024 to $Y in 2026").
+Bullet points for anything that stands out in the numbers: falling revenue, losses, rising debt, low cash compared to liabilities. Mark each as low, medium or high and add a short "Why:" line naming the exact figures and years that triggered it (e.g. "Why: long-term debt rose from $X in 2024 to $Y in 2026"). Only list concerns. If the numbers show none, say so.
 ## Risks from the 10-K
 The 5 most important risks. For each: severity (low/medium/high), one sentence in your own words, then a short exact quote (under 25 words) from the paragraph, then its paragraph id in square brackets, e.g. [1A-p014].
 ## Red flags

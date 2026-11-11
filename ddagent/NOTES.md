@@ -13,3 +13,5 @@
 1. Prompt lists good news as risks; only list concerns.
 2. Cash ignores investments; needs 10-K text (M1).
 3. Thinking lines didn't print; check the setting.
+
+5/5 citations verified. 

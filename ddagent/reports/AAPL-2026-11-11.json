@@ -1,0 +1,177 @@
+{
+  "company": {
+    "name": "Apple Inc.",
+    "ticker": "AAPL",
+    "cik": 320193
+  },
+  "filing": {
+    "accession": "0000320193-26-000026",
+    "filing_date": "2026-11-03"
+  },
+  "key_figures": [
+    {
+      "metric": "revenue",
+      "fiscal_year_end": "2026-09-26",
+      "value": 478834000000
+    },
+    {
+      "metric": "revenue",
+      "fiscal_year_end": "2025-09-27",
+      "value": 416161000000
+    },
+    {
+      "metric": "revenue",
+      "fiscal_year_end": "2024-09-28",
+      "value": 391035000000
+    },
+    {
+      "metric": "net_income",
+      "fiscal_year_end": "2026-09-26",
+      "value": 132175000000
+    },
+    {
+      "metric": "net_income",
+      "fiscal_year_end": "2025-09-27",
+      "value": 112010000000
+    },
+    {
+      "metric": "net_income",
+      "fiscal_year_end": "2024-09-28",
+      "value": 93736000000
+    },
+    {
+      "metric": "total_assets",
+      "fiscal_year_end": "2026-09-26",
+      "value": 404548000000
+    },
+    {
+      "metric": "total_assets",
+      "fiscal_year_end": "2025-09-27",
+      "value": 359241000000
+    },
+    {
+      "metric": "total_liabilities",
+      "fiscal_year_end": "2026-09-26",
+      "value": 292455000000
+    },
+    {
+      "metric": "total_liabilities",
+      "fiscal_year_end": "2025-09-27",
+      "value": 285508000000
+    },
+    {
+      "metric": "cash",
+      "fiscal_year_end": "2026-09-26",
+      "value": 36305000000
+    },
+    {
+      "metric": "cash",
+      "fiscal_year_end": "2025-09-27",
+      "value": 35934000000
+    },
+    {
+      "metric": "long_term_debt",
+      "fiscal_year_end": "2026-09-26",
+      "value": 78114000000
+    },
+    {
+      "metric": "long_term_debt",
+      "fiscal_year_end": "2025-09-27",
+      "value": 90678000000
+    },
+    {
+      "metric": "long_term_debt",
+      "fiscal_year_end": "2024-09-28",
+      "value": 96662000000
+    }
+  ],
+  "financial_flags": [
+    {
+      "severity": "low",
+      "finding": "Liabilities are large relative to assets (292.5B vs 404.5B in FY2026), though the ratio is improving and long-term debt fell from 96.7B to 78.1B over three years.",
+      "why": "Leverage is meaningful in absolute terms, but earnings (132.2B net income) and falling debt make it manageable."
+    },
+    {
+      "severity": "low",
+      "finding": "Cash and equivalents of 36.3B are small relative to 78.1B long-term debt, based on the cash figure returned (which may exclude marketable securities).",
+      "why": "Liquidity looks thinner on this metric alone; a reviewer should check marketable securities."
+    }
+  ],
+  "risks": [
+    {
+      "category": "legal",
+      "severity": "high",
+      "finding": "The EU DMA Article 6(4) investigation could result in fines of up to 10% of worldwide net sales. A 500M euro fine has already been imposed in the Article 5(4) case and is under appeal.",
+      "evidence_quote": "it can issue a cease and desist order and may impose fines up to 10% of the Company\u2019s annual worldwide net sales",
+      "citation": "3-p002"
+    },
+    {
+      "category": "legal",
+      "severity": "high",
+      "finding": "The DOJ antitrust monopolization suit and related private suits seek equitable relief and damages. This could force changes to the business model.",
+      "evidence_quote": "alleging monopolization or attempted monopolization in the markets for \u201cperformance smartphones\u201d and \u201csmartphones\u201d",
+      "citation": "3-p005"
+    },
+    {
+      "category": "regulatory",
+      "severity": "medium",
+      "finding": "The Epic Games injunction bars commissions on some external App Store purchases. The Ninth Circuit allowed some commission, and the Supreme Court has taken up the contempt standard. Services revenue and margins are exposed.",
+      "evidence_quote": "enjoined the Company from imposing any commission or any fee on purchases that consumers make outside an app",
+      "citation": "3-p006"
+    },
+    {
+      "category": "market",
+      "severity": "high",
+      "finding": "Supply chain is concentrated in Asia and relies on single or limited sources. New US tariffs and retaliatory measures create uncertainty over costs and pricing.",
+      "evidence_quote": "Beginning in the second quarter of 2025, new tariffs were announced on imports to the U.S.",
+      "citation": "1A-p013"
+    },
+    {
+      "category": "operational",
+      "severity": "medium",
+      "finding": "Heavy reliance on outsourcing partners in a few countries and on single-source critical components such as advanced semiconductors and memory.",
+      "evidence_quote": "A significant majority of the Company\u2019s manufacturing is performed in whole or in part by outsourcing partners",
+      "citation": "1A-p012"
+    },
+    {
+      "category": "market",
+      "severity": "medium",
+      "finding": "Intense competition and price pressure. Apple holds a minority share in its major markets.",
+      "evidence_quote": "The Company has a minority market share in the global smartphone, personal computer, tablet and wearables markets",
+      "citation": "1A-p024"
+    }
+  ],
+  "red_flags": [
+    {
+      "flag": "going_concern",
+      "status": "not_found"
+    },
+    {
+      "flag": "material_weakness",
+      "status": "not_found"
+    },
+    {
+      "flag": "restatement",
+      "status": "not_found"
+    },
+    {
+      "flag": "auditor_change",
+      "status": "not_found"
+    },
+    {
+      "flag": "major_litigation",
+      "status": "found",
+      "evidence_quote": "filed a civil antitrust lawsuit in the U.S. District Court for the District of New Jersey against the Company",
+      "citation": "3-p005"
+    }
+  ],
+  "overall_rating": "low",
+  "rating_rationale": "Financials are very strong. Revenue grew from 391.0B to 478.8B and net income from 93.7B to 132.2B over FY2024\u2013FY2026, and long-term debt is falling. Controls were assessed as effective with an EY audit opinion, and I found no going concern, restatement or auditor-change signals. The main concerns are antitrust and regulatory exposure (DOJ, EU DMA, Epic) and tariff and supply-chain concentration. These are significant but unlikely to threaten solvency.",
+  "open_questions": [
+    "Quantify potential financial impact of DMA Article 6(4) and App Store commission changes on Services revenue and margin.",
+    "Check the marketable securities balance to assess total liquidity versus debt.",
+    "Review tariff cost impact and gross margin trend in MD&A.",
+    "Monitor the DOJ case timeline and the Supreme Court contempt review.",
+    "Confirm auditor tenure and the audit report in Item 8 (not read here)."
+  ]
+}

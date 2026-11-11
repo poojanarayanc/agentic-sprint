@@ -1,0 +1,89 @@
+{
+  "score": "4/4",
+  "results": [
+    {
+      "query": "Apple",
+      "passed": true,
+      "checks": {
+        "schema": {
+          "pass": true,
+          "detail": []
+        },
+        "numbers": {
+          "pass": true,
+          "detail": []
+        },
+        "citations": {
+          "pass": true,
+          "detail": "7/7 exact. "
+        }
+      },
+      "turns": 4,
+      "input_tokens": 31788,
+      "output_tokens": 2973,
+      "cost_usd": 0.0933,
+      "seconds": 24.7
+    },
+    {
+      "query": "Microsoft",
+      "passed": true,
+      "checks": {
+        "schema": {
+          "pass": true,
+          "detail": []
+        },
+        "numbers": {
+          "pass": true,
+          "detail": []
+        },
+        "citations": {
+          "pass": true,
+          "detail": "6/6 exact. "
+        }
+      },
+      "turns": 4,
+      "input_tokens": 35048,
+      "output_tokens": 3031,
+      "cost_usd": 0.1004,
+      "seconds": 31.2
+    },
+    {
+      "query": "Peloton",
+      "passed": true,
+      "checks": {
+        "schema": {
+          "pass": true,
+          "detail": []
+        },
+        "numbers": {
+          "pass": true,
+          "detail": []
+        },
+        "citations": {
+          "pass": true,
+          "detail": "8/8 exact. "
+        }
+      },
+      "turns": 4,
+      "input_tokens": 39982,
+      "output_tokens": 3419,
+      "cost_usd": 0.1142,
+      "seconds": 31.3
+    },
+    {
+      "query": "Zyxquor Imaginary Widgets Corp",
+      "passed": true,
+      "checks": {
+        "not_found": {
+          "pass": true,
+          "detail": "Not found. Zyxquor Imaginary Widgets Corp isn't in the SEC company database, so I didn't call submit_report. The report requires real filing data, figures and cited 10-K text, and I have none for this"
+        }
+      },
+      "turns": 3,
+      "input_tokens": 9133,
+      "output_tokens": 468,
+      "cost_usd": 0.0229,
+      "seconds": 6.2
+    }
+  ]
+}

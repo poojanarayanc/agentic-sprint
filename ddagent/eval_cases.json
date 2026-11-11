@@ -1,0 +1,15 @@
+[
+    {
+        "query": "Apple"
+    },
+    {
+        "query": "Microsoft"
+    },
+    {
+        "query": "Peloton"
+    },
+    {
+        "query": "Zyxquor Imaginary Widgets Corp",
+        "expect_not_found": true
+    }
+]

@@ -15,3 +15,13 @@
 3. Thinking lines didn't print; check the setting.
 
 5/5 citations verified. 
+
+Schema for the structure, Prompt still needed for the judgement. 
+
+
+RESULTS
+case                        pass  turns  cost $   checks
+Apple                       yes   4      0.0933   schema:ok numbers:ok citations:ok
+Microsoft                   yes   4      0.1004   schema:ok numbers:ok citations:ok
+Peloton                     yes   4      0.1142   schema:ok numbers:ok citations:ok
+Zyxquor Imaginary Widgets C yes   3      0.0229   not_found:ok

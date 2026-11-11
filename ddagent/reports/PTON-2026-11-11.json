@@ -1,0 +1,184 @@
+{
+  "company": {
+    "name": "PELOTON INTERACTIVE, INC.",
+    "ticker": "PTON",
+    "cik": 1639825
+  },
+  "filing": {
+    "accession": "0001639825-26-000038",
+    "filing_date": "2026-08-06"
+  },
+  "key_figures": [
+    {
+      "metric": "revenue",
+      "fiscal_year_end": "2026-06-30",
+      "value": 2446000000
+    },
+    {
+      "metric": "revenue",
+      "fiscal_year_end": "2025-06-30",
+      "value": 2490800000
+    },
+    {
+      "metric": "revenue",
+      "fiscal_year_end": "2024-06-30",
+      "value": 2700500000
+    },
+    {
+      "metric": "net_income",
+      "fiscal_year_end": "2026-06-30",
+      "value": 63200000
+    },
+    {
+      "metric": "net_income",
+      "fiscal_year_end": "2025-06-30",
+      "value": -118900000
+    },
+    {
+      "metric": "net_income",
+      "fiscal_year_end": "2024-06-30",
+      "value": -551900000
+    },
+    {
+      "metric": "total_assets",
+      "fiscal_year_end": "2026-06-30",
+      "value": 2055900000
+    },
+    {
+      "metric": "total_liabilities",
+      "fiscal_year_end": "2026-06-30",
+      "value": 2195600000
+    },
+    {
+      "metric": "total_liabilities",
+      "fiscal_year_end": "2025-06-30",
+      "value": 2539100000
+    },
+    {
+      "metric": "cash",
+      "fiscal_year_end": "2026-06-30",
+      "value": 1206600000
+    },
+    {
+      "metric": "cash",
+      "fiscal_year_end": "2025-06-30",
+      "value": 1039500000
+    },
+    {
+      "metric": "long_term_debt",
+      "fiscal_year_end": "2026-06-30",
+      "value": 1330000000
+    },
+    {
+      "metric": "long_term_debt",
+      "fiscal_year_end": "2025-06-30",
+      "value": 1539000000
+    }
+  ],
+  "financial_flags": [
+    {
+      "severity": "medium",
+      "finding": "Revenue has declined two years running: $2.70B (FY24) to $2.49B (FY25) to $2.45B (FY26).",
+      "why": "Profitability has been achieved through cost cuts rather than top-line growth, which may limit sustainability."
+    },
+    {
+      "severity": "medium",
+      "finding": "Total liabilities ($2.196B) exceed total assets ($2.056B), a stockholders' deficit of roughly $140M (derived), though the gap has narrowed from FY25.",
+      "why": "Thin equity cushion; reliance on debt financing."
+    },
+    {
+      "severity": "medium",
+      "finding": "Long-term debt of $1.33B against $1.21B cash; the first profit ($63.2M) is small relative to interest expense cited in the 10-K ($123.8M, one of the periods reported).",
+      "why": "Interest burden is heavy relative to earnings; profits are thin."
+    },
+    {
+      "severity": "low",
+      "finding": "Cash rose from $697.6M to $1.21B over two years and debt fell from $1.55B to $1.33B.",
+      "why": "Liquidity and deleveraging are improving, which is a positive."
+    }
+  ],
+  "risks": [
+    {
+      "category": "financial",
+      "severity": "medium",
+      "finding": "Profitability is new and may not be sustained; the company has a history of operating losses.",
+      "evidence_quote": "Although we reported net income in fiscal year 2026, we have incurred significant operating losses in prior periods and may not be able to sustain profitability",
+      "citation": "1A-p004"
+    },
+    {
+      "category": "financial",
+      "severity": "medium",
+      "finding": "Credit facility covenants include a minimum liquidity of $250M and minimum Subscription Revenue of $1.2B (when revolver is drawn). Total debt is about $1.3B, including $350M of 5.50% convertible notes due 2029.",
+      "evidence_quote": "requires us, when revolving loans are outstanding, to maintain a total level of liquidity of not less than $250.0 million",
+      "citation": "1A-p175"
+    },
+    {
+      "category": "legal",
+      "severity": "high",
+      "finding": "Ongoing class action, personal injury, and regulatory proceedings tied to Tread+ and Bike recalls. A new Bike+ recall was announced in November 2025.",
+      "evidence_quote": "We have been and in some cases continue to be subject to class action litigation, private personal injury claims and other regulatory proceedings",
+      "citation": "1A-p203"
+    },
+    {
+      "category": "operational",
+      "severity": "medium",
+      "finding": "Product recalls (Tread+ 2021, Bike 2023, Bike+ Nov 2025) may bring further material costs, and insurance may not cover them.",
+      "evidence_quote": "in November 2025, in collaboration with the CPSC and Health Canada, we announced a voluntary recall of certain Original Series Bike+ units",
+      "citation": "1A-p202"
+    },
+    {
+      "category": "operational",
+      "severity": "medium",
+      "finding": "Sole reliance on contract manufacturers, often single-source, concentrated in Taiwan, China and Thailand, plus tariff exposure.",
+      "evidence_quote": "We are solely reliant on contract manufacturers for all of our manufacturing needs.",
+      "citation": "1A-p054"
+    },
+    {
+      "category": "governance",
+      "severity": "medium",
+      "finding": "The company previously had material weaknesses (FY21\u2013FY24). They are now remediated, but could recur. Risks are flagged around last-mile partners and inventory counts.",
+      "evidence_quote": "we identified certain material weaknesses in our internal control over financial reporting.",
+      "citation": "1A-p178"
+    },
+    {
+      "category": "operational",
+      "severity": "medium",
+      "finding": "Demand forecasting and inventory risk have led to write-downs and disputes with suppliers over purchase commitments.",
+      "evidence_quote": "We have in recent periods experienced, and may continue to experience decreases in consumer demand, resulting in inventory write-downs",
+      "citation": "1A-p020"
+    }
+  ],
+  "red_flags": [
+    {
+      "flag": "going_concern",
+      "status": "not_found"
+    },
+    {
+      "flag": "material_weakness",
+      "status": "not_found"
+    },
+    {
+      "flag": "restatement",
+      "status": "not_found"
+    },
+    {
+      "flag": "auditor_change",
+      "status": "not_found"
+    },
+    {
+      "flag": "major_litigation",
+      "status": "found",
+      "evidence_quote": "We have been and in some cases continue to be subject to class action litigation, private personal injury claims and other regulatory proceedings",
+      "citation": "1A-p203"
+    }
+  ],
+  "overall_rating": "medium",
+  "rating_rationale": "Peloton's first annual profit ($63.2M), rising cash ($1.21B), lower debt and effective internal controls are positives. They are offset by two years of falling revenue, liabilities above assets, $1.33B of debt, and ongoing recall-related litigation, including a new Bike+ recall. The 10-K discloses no going concern doubt, no current material weakness, no restatement and no auditor change (EY remains the auditor). Past material weaknesses (FY21\u2013FY24) were remediated.",
+  "open_questions": [
+    "Read Note 12 for the size of recall-related litigation accruals and the status of class actions and CPSC matters, including the Nov 2025 Bike+ recall costs.",
+    "Is the FY26 profit driven by cost cuts or one-time items? Check operating income and free cash flow.",
+    "What are the trends in subscriptions and churn behind the revenue decline?",
+    "Check the covenant headroom on the $1.2B subscription revenue test and how the company plans to refinance the 2029 maturities.",
+    "Confirm the stockholders' deficit and the quality of the remediation of earlier material weaknesses, including controls over last-mile partners and shared services."
+  ]
+}

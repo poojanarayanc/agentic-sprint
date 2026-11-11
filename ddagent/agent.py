@@ -13,7 +13,9 @@ import anthropic
 
 import edgar
 import tenk
+import report
 MAX_TURNS = 20
+LAST_RUN = {}   # module level, next to MAX_TURNS
 
 MODEL = "claude-sonnet-5-5"
 
@@ -26,19 +28,10 @@ Process:
 4. Read Item 1A with get_10k_section, and use search_10k for red flags: going concern, material weakness, restatement, auditor change, investigation, litigation. Check Items 3 and 9A.
 5. Then write the memo.
 
-Memo format (markdown):
-## Snapshot
-Company name, ticker, CIK, latest 10-K date.
-## Financial trend
-A table of the 3 years for each metric, in USD billions or millions, then 2-3 sentences on the direction (growth, profitability, leverage, cash).
-## Initial risk flags
-Bullet points for anything that stands out in the numbers: falling revenue, losses, rising debt, low cash compared to liabilities. Mark each as low, medium or high and add a short "Why:" line naming the exact figures and years that triggered it (e.g. "Why: long-term debt rose from $X in 2024 to $Y in 2026"). Only list concerns. If the numbers show none, say so.
-## Risks from the 10-K
-The 5 most important risks. For each: severity (low/medium/high), one sentence in your own words, then a short exact quote (under 25 words) from the paragraph, then its paragraph id in square brackets, e.g. [1A-p014].
-## Red flags
-For each of: going concern, material weakness, restatement, auditor change, major litigation. Say "found" with a quote and id, or "not found".
-## Sources
-The accession number of each filing you used.
+Report:
+When you have the financials and have read the 10-K, call submit_report once. Its schema defines the fields. Also:
+- Pick the risks that matter most to an investor, not just the first ones you read.
+- Base overall_rating on both the numbers and the 10-K, and explain it in rating_rationale.
 
 Rules:
 - Only use numbers that the tools returned. Never estimate or use outside knowledge for figures.
@@ -88,6 +81,8 @@ TOOLS = [
                     "required": ["cik", "query"]}},
 ]
 
+TOOLS.append(report.SUBMIT_TOOL)  
+
 
 TOOL_FUNCS = {"find_company": edgar.find_company,
               "list_filings": edgar.list_filings,
@@ -109,6 +104,10 @@ def agent(task: str) -> str:
     # 2. Context growth: this list is the agent's entire memory. Watch it grow.
     messages = [{"role": "user", "content": task}]
 
+    LAST_RUN.clear()
+    LAST_RUN.update(turns=0, input_tokens=0, output_tokens=0, report=None)
+    nudged = False
+
     for turn in range(MAX_TURNS):
         response = client.messages.create(
             model=MODEL,
@@ -118,6 +117,9 @@ def agent(task: str) -> str:
             thinking={"type": "adaptive", "display": "summarized"},
             messages=messages,
         )
+        LAST_RUN["turns"] += 1
+        LAST_RUN["input_tokens"] += response.usage.input_tokens
+        LAST_RUN["output_tokens"] += response.usage.output_tokens
         print(f"[turn {turn}] stop_reason={response.stop_reason} "
               f"in={response.usage.input_tokens} out={response.usage.output_tokens}")
     
@@ -131,8 +133,11 @@ def agent(task: str) -> str:
         # 3. Stop reasons: decide what each one means.
         # TODO: if stop_reason is "end_turn", return the final text.
         if response.stop_reason == "end_turn":
-            text = "".join(b.text for b in response.content if b.type == "text")
-            return text
+            if nudged:
+                return "".join(b.text for b in response.content if b.type == "text")
+            nudged = True
+            messages.append({"role": "user", "content": "Now call submit_report with the final report. If the company was not found, say 'not found' instead."})
+            continue
         # TODO: if stop_reason is "max_tokens", what should happen?
         if response.stop_reason == "max_tokens":
             text = "".join(b.text for b in response.content if b.type == "text")
@@ -149,6 +154,18 @@ def agent(task: str) -> str:
             for block in response.content:
                 if block.type != "tool_use":
                     continue
+                if block.name == "submit_report":
+                    errors = report.validate(block.input)
+                    LAST_RUN["report"] = block.input
+                    if errors:
+                        print(f"  !! report rejected: {errors}")
+                        results.append({"type": "tool_result", "tool_use_id": block.id, "is_error": True,
+                                        "content": "Report rejected. Fix these and call submit_report again:\n" + "\n".join(errors)})
+                    else:
+                        final = report.to_markdown(block.input)
+                        results.append({"type": "tool_result", "tool_use_id": block.id,
+                                        "content": f"Saved to {report.save(block.input)}"})
+                    continue
                 try:
                     print(f"  -> {block.name}({block.input})")
                     output = run_tool(block.name, block.input)
@@ -164,7 +181,10 @@ def agent(task: str) -> str:
                         "content": str(e),
                         "is_error": True,
                     })
+                final = None
             messages.append({"role":"user","content":results})
+            if final:
+                return final 
             continue
 
 

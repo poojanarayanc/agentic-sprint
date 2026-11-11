@@ -1,0 +1,170 @@
+{
+  "company": {
+    "name": "MICROSOFT CORP",
+    "ticker": "MSFT",
+    "cik": 789019
+  },
+  "filing": {
+    "accession": "0001193125-26-323660",
+    "filing_date": "2026-07-29"
+  },
+  "key_figures": [
+    {
+      "metric": "revenue",
+      "fiscal_year_end": "2026-06-30",
+      "value": 331839000000
+    },
+    {
+      "metric": "revenue",
+      "fiscal_year_end": "2025-06-30",
+      "value": 281724000000
+    },
+    {
+      "metric": "revenue",
+      "fiscal_year_end": "2024-06-30",
+      "value": 245122000000
+    },
+    {
+      "metric": "net_income",
+      "fiscal_year_end": "2026-06-30",
+      "value": 133749000000
+    },
+    {
+      "metric": "net_income",
+      "fiscal_year_end": "2025-06-30",
+      "value": 101832000000
+    },
+    {
+      "metric": "net_income",
+      "fiscal_year_end": "2024-06-30",
+      "value": 88136000000
+    },
+    {
+      "metric": "total_assets",
+      "fiscal_year_end": "2026-06-30",
+      "value": 758376000000
+    },
+    {
+      "metric": "total_assets",
+      "fiscal_year_end": "2025-06-30",
+      "value": 619003000000
+    },
+    {
+      "metric": "total_liabilities",
+      "fiscal_year_end": "2026-06-30",
+      "value": 315989000000
+    },
+    {
+      "metric": "total_liabilities",
+      "fiscal_year_end": "2025-06-30",
+      "value": 275524000000
+    },
+    {
+      "metric": "cash",
+      "fiscal_year_end": "2026-06-30",
+      "value": 20935000000
+    },
+    {
+      "metric": "cash",
+      "fiscal_year_end": "2025-06-30",
+      "value": 30242000000
+    },
+    {
+      "metric": "long_term_debt",
+      "fiscal_year_end": "2026-06-30",
+      "value": 40294000000
+    },
+    {
+      "metric": "long_term_debt",
+      "fiscal_year_end": "2025-06-30",
+      "value": 43151000000
+    }
+  ],
+  "financial_flags": [
+    {
+      "severity": "low",
+      "finding": "Cash fell to $20.935B at FY2026 from $30.242B at FY2025 (about -31%), while total assets rose to $758.376B from $619.003B.",
+      "why": "The asset base is growing fast, consistent with heavy datacenter and AI investment. Cash is still large next to long-term debt of $40.294B, so liquidity looks adequate. The 10-K does not show whether the cash decline is a deliberate shift into investments."
+    },
+    {
+      "severity": "low",
+      "finding": "Total assets grew about 22% in FY2026, faster than revenue growth of about 18%.",
+      "why": "Capital intensity is rising. Returns on the AI buildout depend on future demand."
+    }
+  ],
+  "risks": [
+    {
+      "category": "financial",
+      "severity": "medium",
+      "finding": "The AI and cloud buildout needs large and rising capital spending ahead of revenue. Returns are uncertain and depend on access to capital.",
+      "evidence_quote": "in advance of fully developed revenue streams. The associated revenue may not be realized in the expected timeframes or at expected levels.",
+      "citation": "1A-p020"
+    },
+    {
+      "category": "operational",
+      "severity": "medium",
+      "finding": "Datacenter expansion faces power, component and supply constraints that could limit growth.",
+      "evidence_quote": "We have experienced and may continue to experience supply constraints, including shortages of semiconductors, networking equipment, power systems, cooling equipment",
+      "citation": "1A-p068"
+    },
+    {
+      "category": "legal",
+      "severity": "medium",
+      "finding": "The IRS is seeking $28.9B plus penalties and interest over transfer pricing for 2004\u20132013. Microsoft disputes it and says its allowances are adequate. An adverse outcome could be material.",
+      "evidence_quote": "the IRS is seeking an additional tax payment of $28.9 billion plus penalties and interest.",
+      "citation": "7-p133"
+    },
+    {
+      "category": "operational",
+      "severity": "medium",
+      "finding": "A nation-state attack on Microsoft's systems exposed email accounts and some source code repositories. Further attacks could harm customers and reputation.",
+      "evidence_quote": "a nation-state associated threat actor used a password spray attack to compromise a legacy test account and, in turn, gain access to Microsoft email accounts.",
+      "citation": "1A-p040"
+    },
+    {
+      "category": "market",
+      "severity": "medium",
+      "finding": "AI is highly competitive. Some competitors and frontier model providers are also partners and customers, so the relationships may shift.",
+      "evidence_quote": "Our AI offerings compete with AI products from hyperscalers, open-source offerings, and frontier model providers, some of which are also current or potential partners.",
+      "citation": "1A-p014"
+    },
+    {
+      "category": "regulatory",
+      "severity": "medium",
+      "finding": "Laws on AI, data and other areas are changing and sometimes conflict across jurisdictions. Compliance could be costly, and noncompliance could bring penalties.",
+      "evidence_quote": "Compliance with existing, expanding, or new laws and regulations may involve significant costs and operational efforts",
+      "citation": "1A-p087"
+    }
+  ],
+  "red_flags": [
+    {
+      "flag": "going_concern",
+      "status": "not_found"
+    },
+    {
+      "flag": "material_weakness",
+      "status": "not_found"
+    },
+    {
+      "flag": "restatement",
+      "status": "not_found"
+    },
+    {
+      "flag": "auditor_change",
+      "status": "not_found"
+    },
+    {
+      "flag": "major_litigation",
+      "status": "not_found"
+    }
+  ],
+  "overall_rating": "low",
+  "rating_rationale": "Revenue grew from $245.1B to $331.8B over three years, and net income grew from $88.1B to $133.7B. Liabilities of $316.0B are well below assets of $758.4B, and long-term debt is $40.3B and falling. Management and Deloitte both found internal control over financial reporting effective. Searches found no going-concern, restatement, material weakness or auditor-change language. The main risks are the size of the AI capital spending, supply and power constraints, the $28.9B IRS dispute, cybersecurity, and competition and regulation. Item 3 only points to Note 14, which I did not read, so I could not confirm the litigation picture.",
+  "open_questions": [
+    "Read Note 14 (Contingencies) for current legal proceedings. Item 3 only cross-references it, so the major-litigation check is not conclusive.",
+    "Check capital expenditure and free cash flow trends, and why cash fell about 31% in FY2026.",
+    "Assess how much of the $28.9B IRS exposure is reserved, and the timing of any resolution.",
+    "Review customer and partner concentration in AI and Azure, including the frontier model relationships.",
+    "Review the auditor's critical audit matters and the Item 9A text beyond the paragraphs read."
+  ]
+}
